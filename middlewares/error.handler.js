@@ -11,13 +11,13 @@ function errorHandler(err, req, res, next) {
 }
 
 function boomErrorHandler(err, req, res, next) {
-  if(err.isBoom){
+  if (err.isBoom) {
     const { output } = err;
     res.status(output.statusCode).json(output.payload);
   } else {
     next(err);
   }
 }
-//sistemas de trquing
+
 
 module.exports = { logErrors, errorHandler, boomErrorHandler }
